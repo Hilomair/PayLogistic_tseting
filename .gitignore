@@ -1,0 +1,12 @@
+#���� config
+config.php
+
+#���� db
+db.php
+
+#���� Config
+Config.php
+
+*.config
+test.php
+*.Config
