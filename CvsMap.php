@@ -1,15 +1,16 @@
 ﻿<?php
     // 電子地圖
-    define('HOME_URL', 'http://www.sample.com.tw/logistics_dev');
+    //define('HOME_URL', 'http://www.sample.com.tw/logistics_dev');
+    require ('Config.php');
     require('ECPay.Logistics.Integration.php');
     try {
         $AL = new ECPayLogistics();
         $AL->Send = array(
-            'MerchantID' => '2000132',
+            'MerchantID' => config::ECPay_MerchantID,
             'MerchantTradeNo' => 'no' . date('YmdHis'),
             'LogisticsSubType' => LogisticsSubType::UNIMART,
             'IsCollection' => IsCollection::NO,
-            'ServerReplyURL' => HOME_URL . '/ServerReplyURL.php',
+            'ServerReplyURL' => config::ECPay_ReturnURL . '/ServerReplyURL.php',
             'ExtraData' => '測試額外資訊',
             'Device' => Device::PC
         );
